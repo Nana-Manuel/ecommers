@@ -10,7 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import screens.BagScreen
 import screens.FavoritesScreen
-import screens.HomeScreen
+import com.example.e_commers.ui.screens.HomeScreen
 import screens.ProfileScreen
 import screens.Shop_Screen
 

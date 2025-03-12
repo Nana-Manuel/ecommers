@@ -1,6 +1,5 @@
 package com.example.e_commers
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -25,7 +24,11 @@ import androidx.navigation.NavHostController
 import androidx.compose.material.BottomNavigation
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.BottomNavigationItem
+//noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.Divider
+import androidx.compose.material.icons.automirrored.filled.ShowChart
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Inventory
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -33,15 +36,15 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.Dp
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import screens.BottomNavItem
+
 
 @Composable
 fun BottomNavBar(navController: NavHostController) {
     val items = listOf(
         BottomNavItem("Home", Icons.Default.Home, "home"),
         BottomNavItem("Shop", Icons.Default.ShoppingCart, "shop"),
-        BottomNavItem("Bag", Icons.Default.ShoppingCart, "bag"),
+        BottomNavItem("Bag", Icons.Filled.Inventory, "bag"),
         BottomNavItem("Favorites", Icons.Default.FavoriteBorder, "favorites"),
         BottomNavItem("Profile", Icons.Default.Person, "profile")
     )
@@ -61,11 +64,13 @@ fun BottomNavBar(navController: NavHostController) {
             items.forEachIndexed { index, item ->
                 BottomNavigationItem(
                     icon = {
-                        Icon(
-                            imageVector = item.icon,
-                            contentDescription = item.label,
-                            tint = if (selectedItem == index) Color.Red else Color.Gray
-                        )
+                        item.icon?.let {
+                            Icon(
+                                imageVector = it,
+                                contentDescription = item.label,
+                                tint = if (selectedItem == index) Color.Red else Color.Gray
+                            )
+                        }
                     },
                     label = {
                         Text(
@@ -97,7 +102,7 @@ fun getNavigationBarHeight(): Dp {
     val density = LocalDensity.current
     val insets = ViewCompat.getRootWindowInsets(view)
 
-    val bottomInset = insets?.systemGestureInsets?.bottom ?: 0 // Safe check for null
+    val bottomInset = insets?.systemGestureInsets?.bottom ?: 0
 
     return with(density) { bottomInset.toDp() }
 }

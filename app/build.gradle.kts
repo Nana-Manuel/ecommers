@@ -60,6 +60,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("androidx.compose.material:material:1.7.8")
+    implementation(libs.androidx.material)
+    implementation (libs.material3)
+    implementation (libs.androidx.material.icons.extended)
 
 }
