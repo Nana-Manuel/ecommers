@@ -20,39 +20,43 @@ import com.example.e_commers.R
 
 @Composable
 fun HomeScreen() {
-
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-    ){
-        Column() {
-            HeroSection()
-            NewArrivalsSection()
-        }
+    ) {
+        HeroSection()
+        NewArrivalsSection()
     }
 
 }
 
 
-
 @Composable
 fun HeroSection() {
-    Box(modifier = Modifier.fillMaxWidth()
-        .fillMaxHeight(0.7f)) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(0.7f)
+    ) {
         Image(
             painter = painterResource(id = R.drawable.hero_image),
             contentDescription = "Fashion Sale",
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .fillMaxHeight(),
             contentScale = ContentScale.Crop
         )
-        Column(modifier = Modifier.align(Alignment.CenterStart).padding(16.dp)) {
-            Text(text = "Fashion",
+        Column(modifier = Modifier
+            .align(Alignment.CenterStart)
+            .padding(16.dp)) {
+            Text(
+                text = "Fashion",
                 fontSize = 35.sp,
                 color = Color.White,
                 fontWeight = FontWeight.ExtraBold
             )
-            Text(text = "Sale",
+            Text(
+                text = "Sale",
                 fontSize = 35.sp,
                 color = Color.White,
                 fontWeight = FontWeight.ExtraBold
@@ -73,11 +77,9 @@ fun NewArrivalsSection() {
     Column(modifier = Modifier.padding(16.dp)) {
         Text(text = "New", fontSize = 24.sp)
         Text(text = "You’ve never seen it before!", fontSize = 14.sp, color = Color.Gray)
+
     }
 }
-
-
-
 
 
 @Preview(showBackground = true)

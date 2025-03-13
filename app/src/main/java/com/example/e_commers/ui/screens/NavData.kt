@@ -1,4 +1,4 @@
-package screens
+package com.example.e_commers.ui.screens
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

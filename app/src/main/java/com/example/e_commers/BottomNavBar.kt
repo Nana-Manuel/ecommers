@@ -26,8 +26,6 @@ import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.Divider
-import androidx.compose.material.icons.automirrored.filled.ShowChart
-import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Inventory
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
@@ -36,7 +34,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.Dp
 import androidx.core.view.ViewCompat
-import screens.BottomNavItem
+import com.example.e_commers.ui.screens.BottomNavItem
 
 
 @Composable
