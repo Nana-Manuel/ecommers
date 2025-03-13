@@ -107,7 +107,7 @@ fun NewArrivalsSection() {
                 Box(
                     modifier = Modifier
                         .height(150.dp)
-                        .width(120.dp)
+                        .width(140.dp)
                         .clip(RoundedCornerShape(10.dp))
                 ) {
                     Image(
