@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import screens.BagScreen
 import screens.FavoritesScreen
 import com.example.e_commers.ui.screens.HomeScreen
+import com.example.e_commers.ui.screens.HomeScreen2
 import screens.ProfileScreen
 import screens.Shop_Screen
 
@@ -29,7 +30,8 @@ fun MainScreen() {
                 startDestination = "home",
                 modifier = Modifier.padding(innerPadding)
             ) {
-                composable("home") { HomeScreen() }
+                composable("home") { HomeScreen(navController) }
+                composable("home2") { HomeScreen2(navController) }
                 composable("shop") { Shop_Screen() }
                 composable("bag") { BagScreen() }
                 composable("favorites") { FavoritesScreen() }

@@ -9,10 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,22 +20,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.e_commers.R
 
 
 @Composable
-fun HomeScreen2() {
+fun HomeScreen2(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-//            .verticalScroll(rememberScrollState()) // Enables scrolling
     ) {
         NewCollection()
         CategoryGrid()
     }
 }
 
-// HERO SECTION (New Collection)
+
 @Composable
 fun NewCollection() {
     Box(
@@ -81,7 +78,7 @@ fun CategoryGrid() {
 }
 
 @Composable
-fun SummerSale(modifier: Modifier = Modifier) {
+fun SummerSale() {
     Box(
         modifier = Modifier
             .fillMaxHeight(0.5f)
@@ -101,7 +98,7 @@ fun SummerSale(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun BlackCollection(modifier: Modifier = Modifier) {
+fun BlackCollection() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -125,7 +122,7 @@ fun BlackCollection(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun MensHoodies(modifier: Modifier = Modifier) {
+fun MensHoodies() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -142,16 +139,15 @@ fun MensHoodies(modifier: Modifier = Modifier) {
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier
-//                .align(Alignment.Center)
                 .padding(start = 35.dp)
         )
     }
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewHome2() {
-    HomeScreen2()
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun PreviewHome2() {
+////    HomeScreen2()
+//}
 
