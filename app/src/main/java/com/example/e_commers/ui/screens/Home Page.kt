@@ -10,6 +10,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.StarHalf
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StarHalf
 import androidx.compose.material3.Button
@@ -24,18 +25,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.e_commers.R
+import kotlin.math.roundToInt
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
-        HeroSection()
+        HeroSection(navController)
         NewArrivalsSection()
         SaleSection()
     }
@@ -44,7 +46,7 @@ fun HomeScreen() {
 
 
 @Composable
-fun HeroSection() {
+fun HeroSection(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -76,7 +78,9 @@ fun HeroSection() {
                 fontWeight = FontWeight.ExtraBold
             )
             Button(
-                onClick = { },
+                onClick = {
+                    navController.navigate("home2")
+                },
                 colors = ButtonDefaults.buttonColors(Color.Red),
                 shape = RoundedCornerShape(8.dp)
             ) {
@@ -161,9 +165,11 @@ fun SaleSection() {
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             val saleItems = listOf(
-                SaleItem(R.drawable.sale1, "Striped Wrap Blouse", 39.99, 4.5, 20),
-                SaleItem(R.drawable.sale2, "Casual Denim Jacket", 49.99, 4.8, 15),
-                SaleItem(R.drawable.image4, "Summer Floral Dress", 29.99, 4.3, 10)
+                SaleItem(R.drawable.sale1, "Striped Wrap Blouse", 39.99, 3.2, 20),
+                SaleItem(R.drawable.sale2, "Casual Denim Jacket", 49.99, 2.5, 15),
+                SaleItem(R.drawable.image4, "Summer Floral Dress", 29.99, 4.0, 10),
+                SaleItem(R.drawable.image2, "Casual Denim Jacket", 49.99, 5.0, 20),
+                SaleItem(R.drawable.image1, "Casual Denim Jacket", 49.99, 3.9, 15)
             )
 
             saleItems.forEach { item ->
@@ -221,11 +227,21 @@ fun SaleSection() {
                         }
                         if (item.rating % 1 != 0.0) {
                             Icon(
-                                imageVector = Icons.Filled.StarHalf,
+                                imageVector = Icons.AutoMirrored.Filled.StarHalf,
                                 contentDescription = "Half Star",
                                 tint = Color(0xFFFFD700),
                                 modifier = Modifier.size(14.dp)
                             )
+                        }
+                        if (kotlin.math.ceil(item.rating).toInt() != 5){
+                            repeat(5-kotlin.math.ceil(item.rating).toInt()) {
+                                Icon(
+                                    imageVector = Icons.Default.Star,
+                                    contentDescription = "Star",
+                                    tint = Color.LightGray,
+                                    modifier = Modifier.size(14.dp)
+                                )
+                            }
                         }
                     }
 
@@ -252,11 +268,3 @@ data class SaleItem(
     val discount: Int // Discount percentage
 )
 
-
-
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewFashionSaleScreen() {
-    HomeScreen()
-}
