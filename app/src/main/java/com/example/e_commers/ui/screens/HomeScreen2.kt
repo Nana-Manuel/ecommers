@@ -145,9 +145,9 @@ fun MensHoodies() {
 }
 
 
-//@Preview(showBackground = true)
-//@Composable
-//fun PreviewHome2() {
-////    HomeScreen2()
-//}
+@Preview(showBackground = true)
+@Composable
+fun PreviewHome2() {
+//    HomeScreen2()
+}
 
